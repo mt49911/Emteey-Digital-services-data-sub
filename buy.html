@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy Data - Emteey Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2b2fd4">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+    if(localStorage.getItem("loggedIn")!=="true"){location.href="login.html";}
+    function logout(){localStorage.removeItem("loggedIn");location.href="login.html";}
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="greeting">
+    <span>Buy Data 📶</span>
+    <span id="usernameHeader">demo</span>
+  </div>
+  <i class="fas fa-home" onclick="location.href='dashboard.html'"></i>
+</header>
+
+<main class="container">
+  <div class="card">
+    <label>Phone Number:</label>
+    <input type="number" placeholder="e.g. 09020899102">
+
+    <label>Choose Network & Plan:</label>
+    <div class="plan">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Mtn-Logo.png" alt="MTN">
+      <select>
+        <option>MTN 500MB - ₦150</option>
+        <option>MTN 1GB - ₦250</option>
+        <option>MTN 2GB - ₦450</option>
+      </select>
+    </div>
+
+    <div class="plan">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Airtel_logo_2010.png" alt="Airtel">
+      <select>
+        <option>Airtel 500MB - ₦160</option>
+        <option>Airtel 1GB - ₦260</option>
+        <option>Airtel 2GB - ₦470</option>
+      </select>
+    </div>
+
+    <button class="btn">Proceed (Demo)</button>
+  </div>
+</main>
+
+<script>
+document.getElementById("usernameHeader").innerText =
+  localStorage.getItem("username") || "demo";
+</script>
+</body>
+</html>

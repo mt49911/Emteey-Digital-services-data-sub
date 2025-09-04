@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Emteey Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2b2fd4">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</head>
+<body>
+
+<header><h1>Emteey Digital</h1></header>
+
+<main class="auth-box">
+  <h2>Register</h2>
+  <input placeholder="Full Name">
+  <input placeholder="Email">
+  <input placeholder="Username">
+  <input type="password" placeholder="Password">
+  <button onclick="register()">Register</button>
+  <p>Already registered? <a href="login.html">Login</a></p>
+</main>
+
+<script>
+function register(){
+  alert("Registration Successful (Demo Only)");
+  localStorage.setItem("loggedIn","true");
+  localStorage.setItem("lastLogin", new Date().toLocaleString());
+  localStorage.setItem("username", "demo");
+  location.href="dashboard.html";
+}
+</script>
+</body>
+</html>

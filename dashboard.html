@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Emteey Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2b2fd4">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+    if(localStorage.getItem("loggedIn")!=="true"){location.href="login.html";}
+    function logout(){localStorage.removeItem("loggedIn");location.href="login.html";}
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="greeting">
+    <span id="greetingText">Good Day 👋</span>
+    <span id="usernameHeader">demo</span>
+  </div>
+  <i class="fas fa-bell"></i>
+</header>
+
+<main class="container">
+  <div class="wallet-card">
+    <h2>Wallet Balance</h2>
+    <div class="balance" id="balance">₦2000 <i id="eyeIcon" class="fas fa-eye"></i></div>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <h2>Features</h2>
+  <div class="features">
+    <a href="buy.html" class="feature"><i class="fas fa-shopping-cart"></i><p>Buy Data</p></a>
+    <a href="transactions.html" class="feature"><i class="fas fa-receipt"></i><p>History</p></a>
+    <a href="pricing.html" class="feature"><i class="fas fa-tags"></i><p>Pricing</p></a>
+    <a href="contact.html" class="feature"><i class="fas fa-phone"></i><p>Contact</p></a>
+    <a href="about.html" class="feature"><i class="fas fa-info-circle"></i><p>About</p></a>
+  </div>
+</main>
+
+<script>
+document.getElementById("usernameHeader").innerText =
+  localStorage.getItem("username") || "demo";
+
+// Greeting
+const hour = new Date().getHours();
+let greet = "Good Evening 👋";
+if(hour < 12) greet = "Good Morning 🌅";
+else if(hour < 18) greet = "Good Afternoon ☀️";
+document.getElementById("greetingText").innerText = greet;
+
+// Eye toggle
+const balanceEl = document.getElementById("balance");
+const eyeIcon = document.getElementById("eyeIcon");
+let visible = true;
+eyeIcon.addEventListener("click", () => {
+  visible = !visible;
+  balanceEl.innerHTML = visible ? "₦2000 <i id='eyeIcon' class='fas fa-eye'></i>" : "₦**** <i id='eyeIcon' class='fas fa-eye-slash'></i>";
+  document.getElementById("eyeIcon").addEventListener("click", () => eyeIcon.click());
+});
+</script>
+</body>
+</html>

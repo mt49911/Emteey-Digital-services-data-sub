@@ -1,0 +1,113 @@
+/* ===== Base ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #2c3e50;
+}
+
+/* ===== Header ===== */
+header {
+  background: #2b2fd4;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== Auth Pages ===== */
+.auth-box {
+  max-width: 350px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.auth-box h2 {
+  margin-bottom: 15px;
+}
+.auth-box input,
+.auth-box select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.auth-box button,
+.btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #2b2fd4;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.auth-box button:hover,
+.btn:hover {
+  background: #1a1fbf;
+}
+
+/* ===== Container ===== */
+.container {
+  padding: 15px;
+  max-width: 100%;
+}
+
+/* ===== Wallet & Cards ===== */
+.wallet-card, .account-card, .card {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+.wallet-card h2 {
+  margin: 0 0 10px;
+}
+.wallet-card .balance {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ===== Features ===== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+.feature {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  color: #2b2fd4;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.feature i {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 600px) {
+  header { font-size: 14px; padding: 12px; }
+  .wallet-card .balance { font-size: 20px; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+}
